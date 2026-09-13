@@ -276,7 +276,7 @@ const Navigation = () => {
           scrolled ? 'bg-white/40' : 'bg-white/10'
         }`}
       >
-        <span className="text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.6em] uppercase font-light text-luxury-dark/40 hidden sm:block">Lagos / Atelier</span>
+        <span className="text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.6em] uppercase font-light text-luxury-dark/40 hidden sm:block">Lagos • Worldwide Shipping</span>
         
         <h1 className="text-base md:text-lg font-serif italic tracking-[0.1em] text-luxury-dark/80 dark:text-white/90 transition-colors">MipeModish</h1>
 
@@ -307,7 +307,7 @@ const Navigation = () => {
               <X size={32} strokeWidth={1} />
             </button>
             <div className="flex flex-col items-center gap-8 text-center">
-              {['Collection', 'About', 'Bespoke', 'Bridal', 'Contact'].map((item, idx) => (
+              {['Collection', 'About', 'Bespoke', 'Prom', 'Contact'].map((item, idx) => (
                 <motion.a
                   key={item}
                   initial={{ y: 20, opacity: 0 }}
@@ -322,10 +322,14 @@ const Navigation = () => {
               ))}
             </div>
             <div className="absolute bottom-10 flex flex-col items-center gap-4">
-              <span className="text-[10px] tracking-[0.4em] uppercase opacity-50">Lagos, Nigeria</span>
+              <span className="text-[10px] tracking-[0.4em] uppercase opacity-50">Fashion Designer in Lagos • Worldwide Shipping</span>
               <div className="flex gap-6">
-                <Instagram size={20} strokeWidth={1} />
-                <MessageCircle size={20} strokeWidth={1} />
+                <a href="https://instagram.com/mipemodish" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
+                  <Instagram size={20} strokeWidth={1} />
+                </a>
+                <a href="https://wa.me/message/DWGIZZIM22JVB1" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">
+                  <MessageCircle size={20} strokeWidth={1} />
+                </a>
               </div>
             </div>
           </motion.div>
@@ -469,11 +473,11 @@ const MainContent: React.FC = () => {
   }, []);
 
   const items = [
-    { category: "Signature", title: "Party Guest Simplicity", video: "/videos/collection-1.mp4", gradient: "bg-sage-100" },
-    { category: "Bespoke", title: "Diaspora Queen", video: "/videos/collection-2.mp4", gradient: "bg-peach-100" },
-    { category: "Atelier", title: "Bespoke Masterpiece", video: "/videos/collection-3.mp4", gradient: "bg-chrome-green shadow-chrome" },
-    { category: "Bridal", title: "Couture Silhouette", video: "/videos/collection-4.mp4", gradient: "bg-sage-100" },
-    { category: "Craft", title: "Atelier Grace", video: "/videos/collection-5.mp4", gradient: "bg-peach-100" }
+    { category: "Custom Dresses", title: "Intricate Hand-Finished Gown", video: "/videos/collection-1.mp4", gradient: "bg-sage-100" },
+    { category: "Evening Dresses", title: "Diaspora Queen", video: "/videos/collection-2.mp4", gradient: "bg-peach-100" },
+    { category: "Prom Dresses", title: "Bespoke Masterpiece", video: "/videos/collection-3.mp4", gradient: "bg-chrome-green shadow-chrome" },
+    { category: "Ready To Wear", title: "Party Guest Simplicity", video: "/videos/collection-4.mp4", gradient: "bg-sage-100" },
+    { category: "Fitting & Atelier", title: "Atelier Grace", video: "/videos/collection-5.mp4", gradient: "bg-peach-100" }
   ];
   
   const { scrollYProgress } = useScroll({
@@ -501,7 +505,9 @@ const MainContent: React.FC = () => {
           {['Instagram', 'WhatsApp', 'Contact'].map((item) => (
             <a
               key={item}
-              href={item === 'WhatsApp' ? 'https://wa.me/+2348184287848' : '#'}
+              href={item === 'WhatsApp' ? 'https://wa.me/message/DWGIZZIM22JVB1' : item === 'Instagram' ? 'https://instagram.com/mipemodish' : '#contact'}
+              target={item !== 'Contact' ? '_blank' : undefined}
+              rel={item !== 'Contact' ? 'noopener noreferrer' : undefined}
               className="vertical-text text-[10px] tracking-[0.3em] uppercase opacity-40 hover:opacity-100 transition-opacity cursor-pointer text-luxury-dark"
             >
               {item}
@@ -516,9 +522,9 @@ const MainContent: React.FC = () => {
           transition={{ delay: 3, duration: 1 }}
           className="fixed bottom-12 right-6 md:bottom-24 md:right-12 w-16 h-16 md:w-20 md:h-20 rounded-full backdrop-blur-md bg-white/20 border border-white/30 flex items-center justify-center cursor-pointer shadow-sm z-[50]"
         >
-          <a href="https://wa.me/+2348184287848" className="text-center leading-none">
+          <a href="https://wa.me/message/DWGIZZIM22JVB1" target="_blank" rel="noopener noreferrer" className="text-center leading-none">
             <div className="text-[7px] md:text-[8px] uppercase tracking-widest text-white/60">Book</div>
-            <div className="text-[7px] md:text-[8px] uppercase tracking-widest font-bold text-white">Private</div>
+            <div className="text-[7px] md:text-[8px] uppercase tracking-widest font-bold text-white">Consult</div>
           </a>
         </motion.div>
 
@@ -558,19 +564,28 @@ const MainContent: React.FC = () => {
                   initial={{ opacity: 0, y: "100%" }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-white text-3xl sm:text-5xl md:text-[140px] font-serif leading-[1.1] md:leading-[0.8] tracking-tight md:tracking-[-0.04em] italic mb-8 select-none"
+                  className="text-white text-3xl sm:text-5xl md:text-[140px] font-serif leading-[1.1] md:leading-[0.8] tracking-tight md:tracking-[-0.04em] italic mb-6 select-none"
                 >
                   MipeModish
                 </motion.h1>
               </div>
 
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 1.2 }}
+                className="text-[10px] md:text-xs tracking-[0.5em] uppercase text-stone-300 font-light mb-4"
+              >
+                Fashion Designer in Lagos • Worldwide Shipping
+              </motion.div>
+
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 1.5 }}
-                className="text-sm md:text-lg tracking-[0.22em] md:tracking-[0.4em] uppercase text-white font-light mb-12 max-w-[85%] mx-auto leading-relaxed"
+                className="text-sm md:text-xl tracking-[0.18em] md:tracking-[0.28em] uppercase text-white font-light mb-6 max-w-[90%] mx-auto leading-relaxed"
               >
-                The Architecture of Modern Bespoke<br className="hidden md:block" /> Luxury Fashion
+                Intricate Hand-Finished Details For Every Woman
               </motion.p>
               
               <motion.div 
@@ -579,10 +594,12 @@ const MainContent: React.FC = () => {
                 transition={{ delay: 1.3, duration: 1.5 }}
                 className="flex flex-col items-center justify-center gap-6 pointer-events-auto"
               >
-                <p className="text-lg md:text-2xl font-serif italic text-white mb-8 tracking-wide font-light">“You dream, we create”</p>
+                <p className="text-xs md:text-sm font-sans tracking-[0.3em] uppercase text-stone-300/80 mb-6 font-light">
+                  Custom Dresses &bull; Evening Dresses &bull; Prom Dresses
+                </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-xs mx-auto">
-                  <LuxuryButton href="#collection" className="rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-black transition-all duration-700 px-10">
-                    Book Private
+                  <LuxuryButton href="https://wa.me/message/DWGIZZIM22JVB1" className="rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-black transition-all duration-700 px-10">
+                    Book Consultation
                   </LuxuryButton>
                 </div>
               </motion.div>
@@ -611,7 +628,7 @@ const MainContent: React.FC = () => {
         {/* Collection Section */}
         <section id="collection" className="py-24 md:py-56 overflow-hidden bg-white dark:bg-[#121212] transition-colors duration-500">
           <div className="px-4 md:px-20 max-w-[1920px] mx-auto mb-16 md:mb-20">
-            <SectionHeading title="Premium Collections" subtitle="Agency Grade Selection" />
+            <SectionHeading title="Custom & Evening Collections" subtitle="Intricate Hand-Finished Details" />
           </div>
 
           <div className="relative w-full overflow-x-hidden">
@@ -726,13 +743,13 @@ const MainContent: React.FC = () => {
             </motion.div>
             
             <div className="w-full md:w-1/2 flex flex-col gap-10">
-              <SectionHeading title="Identity & Craft" subtitle="The Founder" />
+              <SectionHeading title="Identity & Craft" subtitle="Fashion Designer in Lagos" />
               <div className="space-y-8 text-stone-600 dark:text-stone-400 leading-relaxed font-light text-lg md:text-xl max-w-xl">
                 <p>
-                  Founded on the spirit of Psalm 118:23 — <span className="italic">"This is the Lord's doing; it is marvelous in our eyes"</span> — MipeModish stands at the intersection of spiritual vision and meticulous craftsmanship.
+                  Founded on the spirit of Psalm 118:23 — <span className="italic">"This is the Lord's doing; it is marvelous in our eyes"</span> — MipeModish stands for intricate hand-finished details created for every woman.
                 </p>
                 <p>
-                  Based in the heart of Lagos, we believe that every garment is a vessel for identity. Our atelier is not just a workspace, but a sanctuary where dreams are stitched into reality.
+                  From our atelier in Lagos, Nigeria to clients worldwide, we specialize in bespoke custom dresses, evening wear, prom dresses, and sophisticated ready-to-wear silhouettes. Every piece is crafted with uncompromising attention to fit, structure, and artistic expression.
                 </p>
               </div>
               <motion.div 
@@ -815,18 +832,18 @@ const MainContent: React.FC = () => {
           >
             <div className="absolute top-0 left-0 w-full h-[0.5px] bg-gradient-to-r from-transparent via-stone-400/20 to-transparent" />
             
-            <span className="text-[10px] tracking-[0.6em] uppercase text-stone-400 dark:text-stone-500 mb-10 block font-light">Exclusivity Awaits</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-12 tracking-tight dark:text-white">Virtual Consultation</h2>
+            <span className="text-[10px] tracking-[0.6em] uppercase text-stone-400 dark:text-stone-500 mb-10 block font-light">Worldwide Shipping Available</span>
+            <h2 className="text-5xl md:text-7xl font-serif mb-12 tracking-tight dark:text-white">Book a Consultation</h2>
             <p className="text-stone-500 dark:text-stone-400 mb-16 max-w-xl mx-auto text-lg md:text-xl leading-relaxed font-light italic">
-              Secure your private session with our designer to discuss your vision. Availability is strictly limited.
+              Connect directly with our design atelier on WhatsApp to begin crafting your custom dresses, evening gowns, or prom dresses.
             </p>
             
             <div className="flex flex-col items-center gap-12">
               <LuxuryButton 
-                href="https://wa.me/+2348184287848"
+                href="https://wa.me/message/DWGIZZIM22JVB1"
                 className="rounded-none bg-luxury-dark text-white shadow-2xl"
               >
-                Book My Consultation
+                Chat on WhatsApp
               </LuxuryButton>
               
               <motion.div 
@@ -835,9 +852,9 @@ const MainContent: React.FC = () => {
                 transition={{ delay: 0.8, duration: 1.2 }}
                 className="flex flex-col md:flex-row items-center gap-6 md:gap-12 text-[9px] tracking-[0.5em] uppercase text-stone-500 font-light"
               >
-                <div className="flex items-center gap-3"><Clock size={12} strokeWidth={1} /> Monday - Friday</div>
+                <div className="flex items-center gap-3"><Clock size={12} strokeWidth={1} /> Monday - Saturday</div>
                 <div className="hidden md:block h-4 w-px bg-stone-300" />
-                <div className="flex items-center gap-3"><MapPin size={12} strokeWidth={1} /> 09:00 - 18:00 WAT</div>
+                <div className="flex items-center gap-3"><MapPin size={12} strokeWidth={1} /> Lagos, Nigeria • Worldwide Shipping</div>
               </motion.div>
             </div>
           </motion.div>
@@ -878,22 +895,39 @@ const MainContent: React.FC = () => {
         <footer className="bg-luxury-cream dark:bg-[#121212] pt-32 pb-20 px-8 md:px-20 border-t border-stone-100 dark:border-stone-800 transition-colors duration-500">
           <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between gap-24">
             <div className="max-w-md">
-              <h4 className="text-4xl font-serif mb-10 tracking-tight italic text-luxury-dark/90 dark:text-white/90">MIPEMODISH</h4>
-              <p className="text-stone-400 dark:text-stone-500 text-base mb-12 leading-relaxed font-light">
-                An artisan atelier specializing in bespoke bridal and luxury signature pieces. 
-                Dedicated to the manifestation of dreams through the medium of divine craftsmanship.
+              <h4 className="text-4xl font-serif mb-6 tracking-tight italic text-luxury-dark/90 dark:text-white/90">MIPEMODISH</h4>
+              <p className="text-[10px] tracking-[0.4em] uppercase text-stone-400 mb-6 font-light">Fashion Designer in Lagos</p>
+              <p className="text-stone-400 dark:text-stone-500 text-base mb-10 leading-relaxed font-light">
+                Intricate hand-finished details for every woman. Custom dresses, evening wear, prom dresses, and refined ready-to-wear with worldwide shipping.
               </p>
-              <div className="flex flex-wrap gap-10">
-                {['Instagram', 'WhatsApp', 'Enquiries'].map((social) => (
-                  <motion.a 
-                    key={social}
-                    whileHover={{ y: -2, opacity: 0.6 }} 
-                    href="#" 
-                    className="text-luxury-dark dark:text-white text-[10px] tracking-[0.4em] uppercase pb-2 border-b border-luxury-dark/20 dark:border-white/20 hover:border-luxury-dark dark:hover:border-white transition-all duration-700"
-                  >
-                    {social}
-                  </motion.a>
-                ))}
+              <div className="flex flex-wrap gap-8">
+                <motion.a 
+                  whileHover={{ y: -2, opacity: 0.6 }} 
+                  href="https://instagram.com/mipemodish" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-luxury-dark dark:text-white text-[10px] tracking-[0.4em] uppercase pb-2 border-b border-luxury-dark/20 dark:border-white/20 hover:border-luxury-dark dark:hover:border-white transition-all duration-700"
+                >
+                  Instagram
+                </motion.a>
+                <motion.a 
+                  whileHover={{ y: -2, opacity: 0.6 }} 
+                  href="https://wa.me/message/DWGIZZIM22JVB1" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-luxury-dark dark:text-white text-[10px] tracking-[0.4em] uppercase pb-2 border-b border-luxury-dark/20 dark:border-white/20 hover:border-luxury-dark dark:hover:border-white transition-all duration-700"
+                >
+                  WhatsApp
+                </motion.a>
+                <motion.a 
+                  whileHover={{ y: -2, opacity: 0.6 }} 
+                  href="https://www.threads.net/@mipemodish" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-luxury-dark dark:text-white text-[10px] tracking-[0.4em] uppercase pb-2 border-b border-luxury-dark/20 dark:border-white/20 hover:border-luxury-dark dark:hover:border-white transition-all duration-700"
+                >
+                  Threads
+                </motion.a>
               </div>
             </div>
             
@@ -902,18 +936,18 @@ const MainContent: React.FC = () => {
                 <span className="text-[10px] tracking-[0.6em] uppercase text-luxury-dark/40 block mb-12 font-light">Mailing Address</span>
                 <div className="flex items-start gap-4 text-stone-500 text-xs leading-loose font-light">
                   <MapPin size={14} strokeWidth={1} className="mt-1" />
-                  <p className="tracking-[0.1em]">Atelier Lagos<br />Lagos, Nigeria<br />Available Globally</p>
+                  <p className="tracking-[0.1em]">Atelier Lagos<br />Lagos, Nigeria<br />Worldwide Shipping</p>
                 </div>
               </div>
               
               <div>
-                <span className="text-[10px] tracking-[0.6em] uppercase text-luxury-dark/40 dark:text-stone-500 block mb-12 font-light">Directory</span>
+                <span className="text-[10px] tracking-[0.6em] uppercase text-luxury-dark/40 dark:text-stone-500 block mb-12 font-light">Specialties</span>
                 <ul className="space-y-6 text-stone-500 dark:text-stone-400 text-[10px] tracking-[0.5em] uppercase font-light">
-                  {['Manifesto', 'The Collections', 'The Designer', 'Legal Notice'].map((item) => (
+                  {['Custom Dresses', 'Evening Dresses', 'Prom Dresses', 'Ready To Wear', 'Worldwide Delivery'].map((item) => (
                     <li key={item}>
                       <motion.a 
                         whileHover={{ x: 5 }} 
-                        href={`#${item.toLowerCase().replace(' ', '')}`} 
+                        href="#collection" 
                         className="hover:text-luxury-dark dark:hover:text-white transition-all duration-500"
                       >
                         {item}
@@ -928,9 +962,9 @@ const MainContent: React.FC = () => {
           <div className="mt-32 pt-12 border-t border-stone-100 dark:border-stone-800 flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left transition-colors duration-500">
             <p className="text-[9px] tracking-[0.8em] uppercase text-stone-400 dark:text-stone-500 font-light italic">© 2026 MIPEMODISH / BESPOKE ARTISTRY</p>
             <div className="flex items-center gap-6 text-[9px] tracking-[0.4em] uppercase text-stone-500/60 font-light">
-              <span>You dream, we create</span>
+              <span>Intricate Hand-Finished Details</span>
               <div className="w-2 h-[0.5px] bg-stone-300 dark:bg-stone-600" />
-              <span className="italic">Divine Craftsmanship</span>
+              <span className="italic">Worldwide Shipping</span>
             </div>
           </div>
         </footer>

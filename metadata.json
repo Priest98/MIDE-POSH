@@ -1,6 +1,6 @@
 {
-  "name": "MipeModish | Luxury Fashion",
-  "description": "A bespoke and bridal fashion experience from Lagos, Nigeria. You dream, we create.",
+  "name": "MipeModish | Fashion Designer in Lagos",
+  "description": "Intricate hand-finished details for every woman. Custom dresses, evening wear, and prom dresses from Lagos with worldwide shipping.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
